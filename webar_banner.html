@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+        <title>WebAR banner</title>
+        <link rel="stylesheet" type="text/css" href="./static/css/style.css"/>
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+    </head>
+    <body>
+        <!-- 
+            model-viewerはusdz（ios-src指定）だとwebページの3Dモデルが表示されない
+            glbを用いればwebページ上で3Dモデルが表示される
+            バナーはmodel-viewerを用いた場合はアクションが機能せずにもとのページに戻るだけ（対応されていないっぽい）
+            →（AR Quick Lookを直接使えば指定したリンクに飛べる）
+         -->
+        <model-viewer 
+            ar
+            ar-modes="scene-viewer webxr quick-look"
+            alt="Table"
+            ios-src="./static/3dmodel/table/table.usdz#callToAction=カートに追加&checkoutTitle=テーブル&checkoutSubtitle=寸法&price=6,000円"
+            camera-controls
+            ar-scale="fixed"
+            quick-look-browsers="safari chrome">
+
+        </model-viewer>
+        <script>
+            document.querySelector('model-viewer').addEventListener("message", function (event) {   
+                if (event.data == "_apple_ar_quicklook_button_tapped") {
+                    window.open('https://yoshi-nori.github.io/hw_w1/add_to_cart.html', '_blank');
+                }
+            }, false);
+
+        </script>
+        <small>
+            <a href="https://sketchfab.com/3d-models/table-1132fa2850a24917892733566bd68e74">Table &copy; yryabchenko (2018)</a> / 
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </small>
+        <p>test1</p>
+    </body>
+</html>

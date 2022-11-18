@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+        <title>WebAR banner</title>
+        <link rel="stylesheet" type="text/css" href="./static/css/style.css"/>
+    </head>
+    <body>
+        <!-- 
+            AR Quick Lookで直接実装する場合は<img>タグが無いとブラウザがusdz拡張子を認識しなくなるのでimgタグ必須！
+         -->
+        <div>
+            <a id="ar-link"
+                rel="ar" 
+                href="./static/3dmodel/table/table.usdz#callToAction=カートに追加&checkoutTitle=テーブル&checkoutSubtitle=寸法&price=6,000円">
+                <img src="./static/img/table.png">
+            </a>
+        </div>
+
+        <script>
+            document.getElementById('ar-link').addEventListener("message", function (event) {   
+                if (event.data == "_apple_ar_quicklook_button_tapped") {
+                    window.open('https://yoshi-nori.github.io/hw_w1/add_to_cart.html', '_blank');
+                }
+            }, false);
+
+        </script>
+        <small>
+            <a href="https://sketchfab.com/3d-models/table-1132fa2850a24917892733566bd68e74">Table &copy; yryabchenko (2018)</a> / 
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </small>
+    </body>
+</html>

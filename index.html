@@ -3,13 +3,21 @@
     <head>
         <meta charset="utf-8">
         <title>model-viewer demo</title>
+        <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/ress/dist/ress.min.css"/> -->
+        <link rel="stylesheet" type="text/css" href="static/css/style.css"/>
     </head>
     <body>
         <script type="module" src="https://unpkg.com/@google/model-viewer@0.3.1/dist/model-viewer.js"></script>
-        <model-viewer src="3dmodel/table/Table.glb" ios-src="3dmodel/table/Table.usdz" ar camera-controls></model-viewer>
+        <model-viewer 
+            src="static/3dmodel/table/table.glb" 
+            ios-src="static/3dmodel/table/table.usdz" 
+            ar 
+            camera-controls></model-viewer>
         <small>
-            <a href="https://sketchfab.com/3d-models/table-1132fa2850a24917892733566bd68e74">Table &copy; 3dimentionalben (2018)</a> / 
+            <a href="https://sketchfab.com/3d-models/table-1132fa2850a24917892733566bd68e74">Table &copy; yryabchenko (2018)</a> / 
             <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
         </small>
+        <p><a href="webar_banner.html">model-viewer banner</a></p>
+        <p><a href="webar_quick_look.html">AR Quick Look</a></p>
     </body>
 </html>
